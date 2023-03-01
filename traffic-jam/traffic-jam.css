@@ -1,0 +1,371 @@
+html,
+body {
+    height  : 100%;
+    margin  : 0;
+    overflow: hidden;
+}
+
+.leaflet-container {
+    height    : 570px;
+    width     : 1000px;
+    max-width : 100%;
+    max-height: 100%;
+}
+
+.info-message {
+    background-color: lightgoldenrodyellow;
+    z-index         : 401;
+    padding         : 0.3em;
+    text-align      : center;
+}
+
+.header {
+    height          : 50px;
+    width           : 100%;
+    display         : flex;
+    background-color: #333333;
+}
+
+.header-title {
+    color      : white;
+    font-family: sans-serif;
+    padding    : 10px;
+    text-align : center;
+    font-weight: bold;
+    font-size  : 25px;
+}
+
+.content {
+    display: flex;
+    width  : 100%;
+    height : 100%;
+}
+
+.left-container {
+    left : 0;
+    width: 65%;
+}
+
+.right-container {
+    left        : 0;
+    width       : 33%;
+    margin-left : 1%;
+    margin-right: 1%;
+    height      : 700px;
+    overflow-y  : scroll;
+    overflow-x  : hidden;
+}
+
+#time-range p {
+    font-family: "Arial", sans-serif;
+    font-size  : 14px;
+    color      : #333;
+}
+
+.ui-slider-horizontal {
+    height       : 8px;
+    background   : #D7D7D7;
+    border       : 1px solid #BABABA;
+    box-shadow   : 0 1px 0 #FFF, 0 1px 0 #CFCFCF inset;
+    clear        : both;
+    margin       : 8px 0;
+    border-radius: 6px;
+}
+
+.ui-slider {
+    position  : relative;
+    text-align: left;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    top   : -1px;
+    height: 100%;
+}
+
+.ui-slider .ui-slider-range {
+    position        : absolute;
+    z-index         : 1;
+    height          : 8px;
+    font-size       : .7em;
+    display         : block;
+    border          : 1px solid #5BA8E1;
+    box-shadow      : 0 1px 0 #AAD6F6 inset;
+    border-radius   : 6px;
+    background      : #81B8F3;
+    background-size : 100%;
+    background-image: linear-gradient(top, #A0D4F5, #81B8F3);
+}
+
+.ui-slider .ui-slider-handle {
+    border-radius   : 50%;
+    background      : #F9FBFA;
+    background-size : 100%;
+    background-image: linear-gradient(top, #C7CED6, #F9FBFA);
+    width           : 22px;
+    height          : 22px;
+    box-shadow      : 0 2px 3px -1px rgba(0, 0, 0, 0.6), 0 -1px 0 1px rgba(0, 0, 0, 0.15) inset, 0 1px 0 1px rgba(255, 255, 255, 0.9) inset;
+    transition      : box-shadow .3s;
+}
+
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index : 2;
+    width   : 22px;
+    height  : 22px;
+    cursor  : default;
+    border  : none;
+    cursor  : pointer;
+}
+
+.ui-slider .ui-slider-handle:after {
+    content      : "";
+    position     : absolute;
+    width        : 8px;
+    height       : 8px;
+    border-radius: 50%;
+    top          : 50%;
+    margin-top   : -4px;
+    left         : 50%;
+    margin-left  : -4px;
+    background   : #30A2D2;
+    box-shadow   : 0 1px 1px 1px rgba(22, 73, 163, 0.7) inset, 0 1px 0 0 #FFF;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top        : -.5em;
+    margin-left: -.6em;
+}
+
+.ui-slider a:focus {
+    outline: none;
+}
+
+.element-hide {
+    display: none;
+}
+
+.element-show {
+    display: block;
+}
+
+.traffic-range-slider {
+    z-index: 400;
+    left   : 0;
+    height : 100px;
+}
+
+.bi-info-circle-fill {
+    color: #f6931f
+}
+
+.highway-tag {
+    border-radius   : 6px;
+    background-color: bisque;
+    /* width        : 33%; */
+    text-align      : center;
+    margin          : 2px;
+}
+
+.amenity-tag {
+    border-radius   : 9px;
+    background-color: #f88158;
+    text-align      : center;
+    margin          : 2px;
+}
+
+.amenity-tag--selected {
+    background-color: #bb380d;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.insert-form {
+    border       : 2px black solid;
+    width        : 100%;
+    border-radius: 8px;
+}
+
+.insert-form-element {
+    padding: 11px;
+    width  : 100%;
+
+}
+
+.center-text {
+    text-align: center;
+}
+
+input[type=text] {
+    width: 90%;
+}
+
+.person-marker {
+    background-image: url('https://cdn-icons-png.flaticon.com/128/6747/6747195.png');
+    height          : 55px;
+    width           : 60px;
+    background-size : contain;
+}
+
+.pulse-animate {
+    /* transition: opacity .3s, transform .3s; */
+    animation: pulse-animation 1s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity  : 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity  : 0;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity  : 0;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.7;
+    }
+}
+
+.blinking {
+    animation: fade 0.5s infinite alternate;
+    filter   : drop-shadow(0 0 0.75rem orange);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-50 {
+    width: 50%;
+}
+.w-200 {
+    width: 200%;
+}
+
+.amenity-search {
+    width : 100%;
+    margin: 10px;
+}
+
+.dow-tag {
+    border-radius   : 9px;
+    background-color: #d6f885;
+    text-align      : center;
+    margin          : 2px;
+    padding         : 3px;
+    border          : 2px solid green;
+}
+
+.dow-tag--selected {
+    background-color: #6fd347;
+}
+
+.div-disabled {
+    background-color: #f1f1f1;
+    pointer-events  : none;
+    opacity         : 0.4;
+}
+
+.checkbox-group {
+    position: relative;
+    display : flex;
+    margin  : 1px;
+    padding : 4px;
+}
+
+.checkbox-group .custom-checkbox {
+    position: absolute;
+    opacity : 0;
+    cursor  : pointer;
+    z-index : 1;
+    width   : 1.5rem;
+    height  : 1.5rem;
+}
+
+.custom-checkbox~.custom-checkbox-span {
+    display       : inline-block;
+    border        : 1px solid #000;
+    width         : 1.5rem;
+    height        : 1.5rem;
+    vertical-align: middle;
+    cursor        : pointer;
+}
+
+.custom-checkbox:checked~.custom-checkbox-span:after {
+    content    : "\2713";
+    font-size  : 3rem;
+    font-weight: bold;
+    position   : absolute;
+    left       : -4px;
+    top        : -27px;
+    color      : #000;
+}
+
+.custom-checkbox-label {
+    margin-left: 4px;
+}
+
+.filter-header {
+    margin   : 2px;
+    font-size: large;
+}
+
+.clear-button {
+    width     : 20%;
+    text-align: right;
+    color     : darkorange;
+    cursor    : pointer;
+}
+
+.hour-speed-container {
+    width  : 100%;
+    display: flex;
+    margin : 14px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow   : inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.public-transport-option--selected {
+    background   : antiquewhite;
+    border       : 1px solid deeppink;
+    text-align   : center;
+    border-radius: 8px;
+    margin       : 5px
+}
+
+.public-transport-option-container {
+    width     : 50%;
+    text-align: center;
+}
+
+.public-transport-label {
+    border-bottom: 2px solid deeppink;
+}
