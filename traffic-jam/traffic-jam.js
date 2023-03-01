@@ -332,7 +332,7 @@ function showJammerLayer() {
     document.getElementById('jammer-show').classList.add('element-hide');
 }
 
-function addHighwayLayer(highwayType, forceSelect) {
+function addTraficFeatureLayer(highwayType, forceSelect) {
     if (highwayControls[highwayType]) {
         map.removeLayer(highwayControls[highwayType]);
         highwayControls[highwayType] = null;
@@ -342,7 +342,8 @@ function addHighwayLayer(highwayType, forceSelect) {
         }
     }
     document.getElementById('highway-' + highwayType.replaceAll('_', '')).style.backgroundColor = 'coral';
-    let apiUrl = `${serverBaseUrl}/wfs?service=wfs&version=1.1.0&request=GetFeature&typename=${layer.point4326}&outputformat=json&cql_filter=highway='${highwayType}'&CRS=EPSG:4326`;
+    let apiUrl = `${serverBaseUrl}/wfs?service=wfs&version=1.1.0&request=GetFeature&typename=${layer.point4326}
+                &outputformat=json&cql_filter=highway='${highwayType}'&CRS=EPSG:4326`;
     sendApiRequest(apiUrl, null, function (data) {
         if (data && data.features) {
             var highways = data.features.map(feature =>
@@ -772,7 +773,7 @@ function addNewFeature() {
         data: insertData,
         success: function (xml) {
             console.log(xml);
-            addHighwayLayer(type, true);
+            addTraficFeatureLayer(type, true);
         }
     });
 }
